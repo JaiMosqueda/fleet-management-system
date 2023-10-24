@@ -1,4 +1,5 @@
 import 'package:fleet_management/Home/home_page.dart';
+import 'package:fleet_management/models/api.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,8 +10,38 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  var formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  login(context) async {
+    if(!formKey.currentState!.validate()) {
+      return;
+    }
+
+    Map credentials = {
+      'email': emailController.text,
+      'password': passwordController.text
+    };
+
+    var response = await Api.instance.login(credentials);
+
+    if(response.statusCode != 200) {
+      // Show error message that is invalid credentials
+    }
+
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+      builder: (context) => const HomePage()
+    ), (route) => false);
+
+    @override
+    void dispose() {
+      emailController;
+      passwordController;
+      super.dispose();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +102,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      login(context);
                     },
                     child: Text('Login')),
               ),
