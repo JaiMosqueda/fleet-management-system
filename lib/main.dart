@@ -15,6 +15,6 @@ void main() async {
       primarySwatch: Colors.lightGreen,
       scaffoldBackgroundColor: Colors.green
     ),
-    home: SchedulePage(),
+    home: LoginPage(),
   ));
 }

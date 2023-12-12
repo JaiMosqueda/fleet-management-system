@@ -11,11 +11,6 @@ class _SchedulePageState extends State<SchedulePage> {
 
   var formKey = GlobalKey<FormState>();
 
-  TextEditingController truckerName = TextEditingController();
-  TextEditingController truckerID = TextEditingController();
-  TextEditingController plateNo = TextEditingController();
-  TextEditingController driver = TextEditingController();
-  TextEditingController helper = TextEditingController();
   TextEditingController businessName = TextEditingController();
   TextEditingController deliveryAddress = TextEditingController();
   TextEditingController contactPerson = TextEditingController();
@@ -33,7 +28,7 @@ class _SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Delivery'),
+        title: Text('Scheduling'),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -44,41 +39,6 @@ class _SchedulePageState extends State<SchedulePage> {
                 Text('LTS | LOLONG TRUCKING SERVICES'),
                 Text('Has No.'),
                 Text('TRUCKER INFORMATION'),
-                SizedBox(height: 20,),
-                Row(
-                  children: <Widget>[
-                    Flexible(child: TextFormField(
-                      controller: truckerName,
-                      decoration: InputDecoration(hintText: 'Trucker Name:'),
-                    )),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Flexible(child: TextFormField(
-                      controller: truckerID,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(hintText: 'Trucker ID:'),
-                    )),
-                    Flexible(child: TextFormField(
-                      controller: plateNo,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(hintText: 'Plate No.:'),
-                    )),
-                  ],
-                ),
-                    Row(
-                      children: <Widget>[
-                        Flexible(child: TextFormField(
-                          controller: driver,
-                          decoration: InputDecoration(hintText: 'Driver:'),
-                        )),
-                        Flexible(child: TextFormField(
-                          controller: helper,
-                          decoration: InputDecoration(hintText: 'Helper:'),
-                        )),
-                  ],
-                ),
                 SizedBox(height: 20,),
                 Text('DELIVERY TO'),
                 SizedBox(height: 20,),

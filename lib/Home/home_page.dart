@@ -3,6 +3,7 @@ import 'package:fleet_management/Pages/home.dart';
 import 'package:fleet_management/Pages/profile_page.dart';
 import 'package:fleet_management/Pages/receipt_page.dart';
 import 'package:fleet_management/Pages/schedule_page.dart';
+import 'package:fleet_management/Pages/delivery_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
           },
           children: const [
             Home(),
+            DeliveryPage(),
             SchedulePage(),
             ReceiptPage(),
             ProfilePage(),
@@ -46,6 +48,7 @@ class _HomePageState extends State<HomePage> {
           selectedIndex: _currentIndex,
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(icon: Icon(Icons.home), title: Text('HomePage')),
+            BottomNavyBarItem(icon: Icon(Icons.fire_truck), title: Text('Delivery')),
             BottomNavyBarItem(icon: Icon(Icons.date_range), title: Text('Schedule')),
             BottomNavyBarItem(icon: Icon(Icons.library_add), title: Text('Receipt')),
             BottomNavyBarItem(icon: Icon(Icons.account_circle_rounded), title: Text('Profile')),
